@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.kmp) apply false
     alias(libs.plugins.dokka)
-    id("maven-publish")
+    `maven-publish`
 }
 
 subprojects {
@@ -17,8 +17,6 @@ afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("release") {
-                from(components["release"])
-
                 groupId = "jp.miyayu.easyqrscan"
                 artifactId = "easyqrscan"
                 version = "0.0.1"
