@@ -27,7 +27,7 @@ fun CameraView(
         ProcessCameraProvider.getInstance(localContext)
     }
     AndroidView(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier,
         factory = { context ->
             val previewView = PreviewView(context)
             val preview = Preview.Builder().build()
