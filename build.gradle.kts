@@ -12,15 +12,3 @@ plugins {
 subprojects {
     group = "io.github.kalinjul.easyqrscan"
 }
-
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                groupId = "jp.miyayu.easyqrscan"
-                artifactId = "easyqrscan"
-                version = "0.0.3"
-            }
-        }
-    }
-}

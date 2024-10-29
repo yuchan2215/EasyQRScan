@@ -3,8 +3,9 @@ import org.publicvalue.convention.config.configureIosTargets
 plugins {
     id("org.publicvalue.convention.android.library")
     id("org.publicvalue.convention.kotlin.multiplatform.mobile")
-    id("org.publicvalue.convention.centralPublish")
+    //id("org.publicvalue.convention.centralPublish")
     id("org.publicvalue.convention.compose.multiplatform")
+    `maven-publish`
 }
 
 description = "Compose Multiplatform QR Code Scanner for Android/iOS"
@@ -34,6 +35,19 @@ kotlin {
 
         jvmMain {
             dependencies {
+            }
+        }
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["kotlin"])
+                groupId = "jp.miyayu.easyqrscan"
+                artifactId = "easyqrscan"
+                version = "0.0.4"
             }
         }
     }
